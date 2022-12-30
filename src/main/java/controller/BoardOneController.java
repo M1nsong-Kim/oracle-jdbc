@@ -36,11 +36,13 @@ public class BoardOneController extends HttpServlet {
 		}
 		
 		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		System.out.println(boardNo);	// 디버깅
 		
 		// board
 		this.boardService = new BoardService();
 		Board board = boardService.getBoard(boardNo);
 		request.setAttribute("board", board);
+		System.out.println(board.getMemberId());	// 디버깅
 		
 		// view
 		request.getRequestDispatcher("/WEB-INF/view/board/boardOne.jsp").forward(request, response);

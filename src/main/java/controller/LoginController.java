@@ -34,11 +34,6 @@ public class LoginController extends HttpServlet {
 
 	// 로그인 액션
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
-		 * 로그인 세션 정보 : ex) session.setAttribute("loginMember", Member타입)
-		 * redirect -> get방식 home <- 컨트롤러 요청
-		 * 
-		 */
 		// 로그인 전에만 진입가능
 		HttpSession session = request.getSession();	// HttpSession으로 받아야 함
 		// loginMember : 로그인 전이면 null값
@@ -50,6 +45,7 @@ public class LoginController extends HttpServlet {
 		
 		String memberId = request.getParameter("memberId");
 		String memberPw = request.getParameter("memberPw");
+		
 		
 		Member paramMember = new Member();	// request 파라미터값으로 바인딩
 		paramMember.setMemberId(memberId);

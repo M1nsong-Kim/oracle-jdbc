@@ -8,17 +8,19 @@ import java.util.ArrayList;
 import vo.Board;
 
 public class BoardDao {
-	// 검색 추가
-	public ArrayList<Board> selectBoardListByPage(Connection conn, int beginRow, int endRow) throws Exception {
+	// 글 목록
+	public ArrayList<Board> selectBoardListByPage(Connection conn, int beginRow, int endPage) throws Exception {
 		ArrayList<Board> list = new ArrayList<Board>();
-		String sql = "SELECT board_no boardNo, board_title boardTitle, createdate"
-				+ " FROM (SELECT rownum rnum, board_no, board_title, createdate"
-				+ "			FROM (SELECT board_no, board_title, createdate"
-				+ "					FROM board ORDER BY board_no DESC))"
-				+ " WHERE rnum BETWEEN ? AND ?"; // WHERE rnum >=? AND rnum <=?;
+		String sql = "SELECT board_no boardNo\r\n"
+				+ "        , board_title boardTitle\r\n"
+				+ "        , createdate\r\n"
+				+ "FROM (SELECT rownum rnum, board_no, board_title, createdate\r\n"
+				+ "        FROM (SELECT board_no, board_title, createdate\r\n"
+				+ "                FROM board ORDER BY TO_NUMBER(board_no) DESC))\r\n"
+				+ "WHERE rnum BETWEEN ? AND ?"; // == sWHERE rnum >=? AND rnum <=?;
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, beginRow);
-		stmt.setInt(2, endRow);
+		stmt.setInt(2, endPage);
 		ResultSet rs = stmt.executeQuery();
 		while(rs.next()) {
 			Board b = new Board();
@@ -28,6 +30,20 @@ public class BoardDao {
 			list.add(b);
 		}
 		return list;
+	}
+	
+	// 글 개수
+	public int selectCountBoardList(Connection conn) throws Exception{
+		int count = 0;
+		
+		String sql = "SELECT COUNT(*) FROM board";
+		
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		ResultSet rs = stmt.executeQuery();
+		if(rs.next()) {
+			count = rs.getInt("COUNT(*)");
+		}
+		return count;
 	}
 	
 	// 글쓰기
@@ -68,7 +84,7 @@ public class BoardDao {
 				+ "        , updatedate\r\n"
 				+ "        , createdate\r\n"
 				+ "FROM board\r\n"
-				+ "WHERE boardNo = ?";
+				+ "WHERE board_no = ?";
 		
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, boardNo);
@@ -84,5 +100,40 @@ public class BoardDao {
 			board.setCreatedate(rs.getString("createdate"));
 		}
 		return board;
+	}
+	
+	// 글 수정
+	public int updateBoard(Connection conn, Board board) throws Exception{
+		int row = 0;
+		
+		String sql = "UPDATE board\r\n"
+				+ "SET board_title = ? \r\n"
+				+ "        , board_content = ? \r\n"
+				+ "        , updatedate = sysdate\r\n"
+				+ "WHERE board_no = ? ";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setString(1, board.getBoardTitle());
+		stmt.setString(2, board.getBoardContent());
+		stmt.setInt(3, board.getBoardNo());
+		
+		row = stmt.executeUpdate();
+		// 수정 성공 -> 1 반환
+		return row;
+	}
+	
+	// 글 삭제
+	public int deleteBoard(Connection conn, int boardNo) throws Exception{
+		int row = 0;
+		
+		String sql = "DELETE \r\n"
+				+ "FROM board\r\n"
+				+ "WHERE board_no = ?";
+		
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setInt(1, boardNo);
+		
+		row = stmt.executeUpdate();
+		// 삭제 성공 -> 1 반환
+		return row;
 	}
 }
