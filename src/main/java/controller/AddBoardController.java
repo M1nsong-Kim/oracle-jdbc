@@ -60,7 +60,7 @@ public class AddBoardController extends HttpServlet {
 		this.boardService = new BoardService();
 		int row = boardService.addBoard(board);
 		
-		if(row != 1) {	// 글 추가 실패
+		if(row != 1) {	// 글쓰기 실패
 			System.out.println("글쓰기 실패");
 			response.sendRedirect(request.getContextPath()+"/board/addBoard");
 			return;

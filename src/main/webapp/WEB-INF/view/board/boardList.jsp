@@ -6,15 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>게시판</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script>
-	$(document).ready(function() {
-		$('#rowPerPage').change(function() {
-			$('#pageForm').submit();
-			alert('change');
-		})
-	});
-</script>
 </head>
 <body>
 	<!-- 메뉴 페이지 -->
@@ -22,8 +13,7 @@
 		<!-- .. : 현재 이 jsp파일이 위치한 곳에서 폴더 하나 밖으로 -->
 		<jsp:include page="../home.jsp"></jsp:include>
 	</div>
-	
-	<h1>BOARD LIST</h1>
+
 	<a href="${pageContext.request.contextPath}/board/addBoard">글쓰기</a>
 	<table>
 		<tr>

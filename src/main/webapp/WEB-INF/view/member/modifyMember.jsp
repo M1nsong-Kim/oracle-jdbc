@@ -3,7 +3,43 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원정보수정</title>
+<!-- 제이쿼리 CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		let memberName = $('#memberName');
+		let memberPw = $('#memberPw');
+		
+		memberId.focus();
+		
+		// 이름 유효성 검사
+		memberName.blur(function(){
+			if(memberName.val().length <= 0){				
+				$('#nameMsg').text('이름을 입력해 주세요');
+				memberName.focus();
+			}else {
+				$('#nameMsg').text('');
+				memberPw.focus();
+			}
+		});
+		
+		// 비밀번호 유효성 검사
+		memberPw.blur(function(){
+			if(memberPw.val().length <= 0){				
+				$('#pwMsg').text('비밀번호를 입력해 주세요');
+				memberPw.focus();
+			}else {
+				$('#pwMsg').text('');
+			}
+		});
+		
+		// 폼 제출
+		$('#modifyMemberBtn').click(function(){
+			$('#modifyMemberForm').submit();
+		});
+	});
+</script>
 </head>
 <body>
 	<!-- 메뉴 페이지 -->
@@ -12,7 +48,7 @@
 		<jsp:include page="../home.jsp"></jsp:include>
 	</div>
 	<h3>회원정보 수정</h3>
-	<form method="post" action="${pageContext.request.contextPath}/member/modifyMember">
+	<form method="post" action="${pageContext.request.contextPath}/member/modifyMember" id="modifyMemberForm">
 		<table>
 			<tr>
 				<td>아이디</td>
@@ -21,17 +57,19 @@
 			<tr>
 				<td>이름</td>
 				<td>
-					<input type="text" name="changeMemberName">
+					<input type="text" name="changeMemberName" id="memberName">
+					<div id="nameMsg"></div>
 				</td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>
 				<td>
-					<input type="password" name="memberPw">
+					<input type="password" name="memberPw" id="memberPw">
+					<div id="pwMsg"></div>
 				</td>
 			</tr>
 		</table>
-		<button type="submit">수정</button>
+		<button type="button" id="modifyMemberBtn">수정</button>
 	</form>
 </body>
 </html>
