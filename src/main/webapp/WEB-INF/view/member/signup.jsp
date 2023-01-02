@@ -4,6 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
+<!-- 템플릿 적용 -->
+<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/html5up-future-imperfect/assets/css/main.css">
 <!-- 제이쿼리 CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
@@ -71,40 +73,48 @@
 		<!-- .. : 현재 이 jsp파일이 위치한 곳에서 폴더 하나 밖으로 -->
 		<jsp:include page="../home.jsp"></jsp:include>
 	</div>
-   	<h3>회원가입</h3>
-    <!-- request.getContextPath() ==EL==> ${pageContext.request.contextPath} -->
-    <form method="post" action="${pageContext.request.contextPath}/member/addMember" id="signupForm">
-        <table>
-            <tr>
-            	<td>아이디</td>
-                <td>
-                    <input type="text" name="memberId" id="memberId">
-                    <div id="idMsg"></div>
-                </td>
-            </tr>
-            <tr>
-            	<td>비밀번호</td>
-                <td>
-                    <input type="password" name="memberPw" id="memberPw">
-                    <div id="pwMsg"></div>
-                </td>
-            </tr>
-            <tr>
-            	<td>비밀번호 확인</td>
-                <td>
-                    <input type="password" name="memberPwCk" id="memberPwCk">
-                    <div id="pwCkMsg"></div>
-                </td>
-            </tr>
-            <tr>
-            	<td>이름</td>
-                <td>
-                    <input type="text" name="memberName" id="memberName">
-                    <div id="nameMsg"></div>
-                </td>
-            </tr>
-        </table>
-        <button type="button" id="signupBtn">회원가입</button>
-    </form>
+	<div id="wrapper">
+		<div id="main">
+		   	<h3>회원가입</h3>
+		   	<article class="post">
+			    <!-- request.getContextPath() ==EL==> ${pageContext.request.contextPath} -->
+			    <form method="post" action="${pageContext.request.contextPath}/member/addMember" id="signupForm">
+			        <table>
+			            <tr>
+			            	<td>아이디</td>
+			                <td>
+			                    <input type="text" name="memberId" id="memberId">
+			                    <div id="idMsg"></div>
+			                </td>
+			            </tr>
+			            <tr>
+			            	<td>비밀번호</td>
+			                <td>
+			                    <input type="password" name="memberPw" id="memberPw">
+			                    <div id="pwMsg"></div>
+			                </td>
+			            </tr>
+			            <tr>
+			            	<td>비밀번호 확인</td>
+			                <td>
+			                    <input type="password" name="memberPwCk" id="memberPwCk">
+			                    <div id="pwCkMsg"></div>
+			                </td>
+			            </tr>
+			            <tr>
+			            	<td>이름</td>
+			                <td>
+			                    <input type="text" name="memberName" id="memberName">
+			                    <div id="nameMsg"></div>
+			                </td>
+			            </tr>
+			        </table>
+			        <div class="text-center">
+				        <button type="button" id="signupBtn">회원가입</button>
+			        </div>
+			    </form>
+		   	</article>
+		</div>
+	</div>
 </body>
 </html>

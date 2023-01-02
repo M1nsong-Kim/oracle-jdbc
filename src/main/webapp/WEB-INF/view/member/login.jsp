@@ -4,6 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
+<!-- 템플릿 적용 -->
+<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/html5up-future-imperfect/assets/css/main.css">
 <!-- 제이쿼리 CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
@@ -48,24 +50,30 @@
 		<jsp:include page="../home.jsp"></jsp:include>
 	</div>
 	
-    <h3>로그인</h3>
-    <!-- request.getContextPath() ==EL==> ${pageContext.request.contextPath} -->
-    <form method="post" action="${pageContext.request.contextPath}/member/login" id="loginForm">
-        <table>
-            <tr>
-                <td>
-                    <input type="text" name="memberId" placeholder="아이디를 입력하세요" id="memberId">
-                	<div id="idMsg"></div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="password" name="memberPw" placeholder="비밀번호를 입력하세요" id="memberPw">
-                	<div id="pwMsg"></div>
-                </td>
-            </tr>
-        </table>
-        <button type="button" id="loginBtn">로그인</button>
-    </form>
+	<div id="wrapper">
+		<div id="main">
+		    <h3>로그인</h3>
+		    <article class="post">
+			    <!-- request.getContextPath() ==EL==> ${pageContext.request.contextPath} -->
+			    <form method="post" action="${pageContext.request.contextPath}/member/login" id="loginForm">
+			        <table>
+			            <tr>
+			                <td>
+			                    <input type="text" name="memberId" placeholder="아이디를 입력하세요" id="memberId">
+			                	<div id="idMsg"></div>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <input type="password" name="memberPw" placeholder="비밀번호를 입력하세요" id="memberPw">
+			                	<div id="pwMsg"></div>
+			                </td>
+			            </tr>
+			        </table>
+			        <button type="button" id="loginBtn">로그인</button>
+			    </form>
+		    </article>
+		</div>
+	</div>
 </body>
 </html>
