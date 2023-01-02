@@ -31,6 +31,12 @@ public class RemoveMemberController extends HttpServlet {
 			return;
 		}
 		
+		String msg = "-1";
+		if(request.getParameter("msg") != null) {
+			msg = request.getParameter("msg");
+		}
+		request.setAttribute("msg", msg);
+		
 		// VIEW
 		request.getRequestDispatcher("/WEB-INF/view/member/removeMember.jsp").forward(request, response);
 	}

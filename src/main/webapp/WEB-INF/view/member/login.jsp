@@ -15,8 +15,8 @@
 		
 		// 아이디 유효성 검사
 		memberId.blur(function(){
-			if(memberId.val().length <= 0){				
-				$('#idMsg').text('아이디를 입력해 주세요');
+			if(memberId.val().length <= 0 || memberId.val().indexOf(' ') != -1){ // 아무것도 입력하지 않았거나 공백을 포함한다면		
+				$('#idMsg').text('아이디를 정확히 입력해 주세요');
 				memberId.focus();
 			}else {
 				$('#idMsg').text('');
@@ -26,8 +26,8 @@
 		
 		// 비밀번호 유효성 검사
 		memberPw.blur(function(){
-			if(memberPw.val().length <= 0){				
-				$('#pwMsg').text('비밀번호를 입력해 주세요');
+			if(memberPw.val().length <= 0 || memberPw.val().indexOf(' ') != -1){				
+				$('#pwMsg').text('비밀번호를 정확히 입력해 주세요');
 				memberPw.focus();
 			}else {
 				$('#pwMsg').text('');

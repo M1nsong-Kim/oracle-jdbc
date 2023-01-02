@@ -15,7 +15,7 @@
 		
 		// 제목 유효성 검사
 		boardTitle.blur(function(){
-			if(boardTitle.val().length <= 0){				
+			if(boardTitle.val().length <= 0){			
 				$('#titleMsg').text('제목을 입력해 주세요');
 				boardTitle.focus();
 			}else {

@@ -15,8 +15,8 @@
 		
 		// 이름 유효성 검사
 		memberName.blur(function(){
-			if(memberName.val().length <= 0){				
-				$('#nameMsg').text('이름을 입력해 주세요');
+			if(memberName.val().length <= 0 || memberName.val().indexOf(' ') != -1){ // 아무것도 입력하지 않았거나 공백을 포함한다면			
+				$('#nameMsg').text('이름을 정확히 입력해 주세요');
 				memberName.focus();
 			}else {
 				$('#nameMsg').text('');
