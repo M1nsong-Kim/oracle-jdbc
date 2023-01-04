@@ -4,6 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <title>글쓰기</title>
+<!-- 템플릿 적용 -->
+<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/html5up-future-imperfect/assets/css/main.css">
 <!-- 제이쿼리 CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
@@ -47,25 +49,31 @@
 		<!-- .. : 현재 이 jsp파일이 위치한 곳에서 폴더 하나 밖으로 -->
 		<jsp:include page="../home.jsp"></jsp:include>
 	</div>
-	<h3>글쓰기</h3>
-	<form method="post" action="${pageContext.request.contextPath}/board/addBoard" id="addBoardForm">
-		<table>
-			<tr>
-				<td>제목</td>
-				<td>
-					<input type="text" name="boardTitle" id="boardTitle">
-					<div id="titleMsg"></div>
-				</td>
-			</tr>
-			<tr>
-				<td>내용</td>
-				<td>
-					<textarea rows="5" cols="5" name="boardContent" id="boardContent"></textarea>
-					<div id="contentMsg"></div>
-				</td>
-			</tr>
-		</table>
-		<button type="button" id="addBoardBtn">작성</button>
-	</form>
+	<div id="wrapper">
+		<div id="main">
+			<h3>글쓰기</h3>
+			<article class="post">
+				<form method="post" action="${pageContext.request.contextPath}/board/addBoard" id="addBoardForm">
+					<table>
+						<tr>
+							<td>제목</td>
+							<td>
+								<input type="text" name="boardTitle" id="boardTitle">
+								<div id="titleMsg"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>내용</td>
+							<td>
+								<textarea rows="5" cols="5" name="boardContent" id="boardContent"></textarea>
+								<div id="contentMsg"></div>
+							</td>
+						</tr>
+					</table>
+					<button type="button" id="addBoardBtn">작성</button>
+				</form>
+			</article>
+		</div>
+	</div>
 </body>
 </html>

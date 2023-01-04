@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>홈</title>
+<!-- 템플릿 적용 -->
+<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/html5up-future-imperfect/assets/css/main.css">
 </head>
 <body>	
 	<!-- Header -->
