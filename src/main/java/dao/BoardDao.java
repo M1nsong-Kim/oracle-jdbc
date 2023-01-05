@@ -9,7 +9,7 @@ import vo.Board;
 
 public class BoardDao {
 	// 글 목록
-	public ArrayList<Board> selectBoardListByPage(Connection conn, int beginRow, int endPage) throws Exception {
+	public ArrayList<Board> selectBoardListByPage(Connection conn, int beginRow, int endRow) throws Exception {
 		ArrayList<Board> list = new ArrayList<Board>();
 		String sql = "SELECT board_no boardNo\r\n"
 				+ "        , board_title boardTitle\r\n"
@@ -20,7 +20,7 @@ public class BoardDao {
 				+ "WHERE rnum BETWEEN ? AND ?"; // == sWHERE rnum >=? AND rnum <=?;
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, beginRow);
-		stmt.setInt(2, endPage);
+		stmt.setInt(2, endRow);
 		ResultSet rs = stmt.executeQuery();
 		while(rs.next()) {
 			Board b = new Board();

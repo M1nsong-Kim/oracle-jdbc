@@ -47,24 +47,30 @@
 		<!-- .. : 현재 이 jsp파일이 위치한 곳에서 폴더 하나 밖으로 -->
 		<jsp:include page="../home.jsp"></jsp:include>
 	</div>
-	<form method="post" action="${pageContext.request.contextPath}/board/modifyBoard?boardNo=${board.boardNo}" id="modifyBoardForm">
-		<table>
-			<tr>
-				<td>제목</td>
-				<td>
-					<input type="text" name="boardTitle" value="${board.boardTitle}" id="boardTitle">
-					<div id="titleMsg"></div>
-				</td>
-			</tr>
-			<tr>
-				<td>내용</td>
-				<td>
-					<textarea rows="50" cols="50" name="boardContent" id="boardContent">${board.boardContent}</textarea>
-					<div id="contentMsg"></div>
-				</td>
-			</tr>
-		</table>
-		<button type="button" id="modifyBoardBtn">수정</button>
-	</form>
+	<div id="wrapper">
+		<div id="main">
+			<article class="post">
+				<form method="post" action="${pageContext.request.contextPath}/board/modifyBoard?boardNo=${board.boardNo}" id="modifyBoardForm">
+					<table>
+						<tr>
+							<td>제목</td>
+							<td>
+								<input type="text" name="boardTitle" value="${board.boardTitle}" id="boardTitle">
+								<div id="titleMsg"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>내용</td>
+							<td>
+								<textarea rows="50" cols="50" name="boardContent" id="boardContent">${board.boardContent}</textarea>
+								<div id="contentMsg"></div>
+							</td>
+						</tr>
+					</table>
+					<button type="button" id="modifyBoardBtn">수정</button>
+				</form>
+			</article>
+		</div>
+	</div>
 </body>
 </html>

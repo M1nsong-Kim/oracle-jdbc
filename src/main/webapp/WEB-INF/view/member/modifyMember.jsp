@@ -47,29 +47,35 @@
 		<!-- .. : 현재 이 jsp파일이 위치한 곳에서 폴더 하나 밖으로 -->
 		<jsp:include page="../home.jsp"></jsp:include>
 	</div>
-	<h3>회원정보 수정</h3>
-	<form method="post" action="${pageContext.request.contextPath}/member/modifyMember" id="modifyMemberForm">
-		<table>
-			<tr>
-				<td>아이디</td>
-				<td>${loginMember.memberId}</td>
-			</tr>
-			<tr>
-				<td>이름</td>
-				<td>
-					<input type="text" name="changeMemberName" id="memberName">
-					<div id="nameMsg"></div>
-				</td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td>
-					<input type="password" name="memberPw" id="memberPw">
-					<div id="pwMsg"></div>
-				</td>
-			</tr>
-		</table>
-		<button type="button" id="modifyMemberBtn">수정</button>
-	</form>
+	<div id="wrapper">
+		<div id="main">
+			<h3>회원정보 수정</h3>
+			<article class="post">
+				<form method="post" action="${pageContext.request.contextPath}/member/modifyMember" id="modifyMemberForm">
+					<table>
+						<tr>
+							<td>아이디</td>
+							<td>${loginMember.memberId}</td>
+						</tr>
+						<tr>
+							<td>이름</td>
+							<td>
+								<input type="text" name="changeMemberName" id="memberName">
+								<div id="nameMsg"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>비밀번호</td>
+							<td>
+								<input type="password" name="memberPw" id="memberPw">
+								<div id="pwMsg"></div>
+							</td>
+						</tr>
+					</table>
+					<button type="button" id="modifyMemberBtn">수정</button>
+				</form>
+			</article>
+		</div>
+	</div>
 </body>
 </html>

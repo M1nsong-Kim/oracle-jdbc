@@ -35,17 +35,23 @@
 		<!-- .. : 현재 이 jsp파일이 위치한 곳에서 폴더 하나 밖으로 -->
 		<jsp:include page="../home.jsp"></jsp:include>
 	</div>
-	<form method="post" action="${pageContext.request.contextPath}/member/removeMember" id="removeMemberForm">
-		<table>
-			<tr>
-				<td>비밀번호</td>
-				<td>
-					<input type="password" name="memberPw" id="memberPw">
-					<div id="pwMsg"></div>
-				</td>
-			</tr>
-		</table>
-		<button type="button" id="removeMemberBtn">회원탈퇴</button>
-	</form>
+	<div id="wrapper">
+		<div id="main">
+			<article class="post">
+				<form method="post" action="${pageContext.request.contextPath}/member/removeMember" id="removeMemberForm">
+					<table>
+						<tr>
+							<td>비밀번호</td>
+							<td>
+								<input type="password" name="memberPw" id="memberPw">
+								<div id="pwMsg"></div>
+							</td>
+						</tr>
+					</table>
+					<button type="button" id="removeMemberBtn">회원탈퇴</button>
+				</form>
+			</article>
+		</div>
+	</div>
 </body>
 </html>
