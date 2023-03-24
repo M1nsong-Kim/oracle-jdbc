@@ -11,24 +11,20 @@
 </head>
 <body>	
 	<!-- Header -->
-	<header id="header">
-		<h1><a href="index.html">블로그</a></h1>
-		<nav class="links">
-			<ul>
-				<!-- 로그인 전: 회원가입, 로그인 -->
-				<c:if test="${loginMember == null}">
-					<li><a href="${pageContext.request.contextPath}/member/addMember">회원가입</a></li>
-					<li><a href="${pageContext.request.contextPath}/member/login">로그인</a></li>
-				</c:if>
-	
-				<!-- 로그인 후: 로그아웃, 회원정보, 게시판리스트 -->
-				<c:if test="${loginMember != null}">
-					<li><a href="${pageContext.request.contextPath}/member/memberOne">회원정보</a></li>
-					<li><a href="${pageContext.request.contextPath}/board/boardList">게시판</a></li>
-					<li><a href="${pageContext.request.contextPath}/member/logout">로그아웃</a></li>
-				</c:if>
-			</ul>
-		</nav>
-	</header>
+	<div>
+		<!-- .. : 현재 이 jsp파일이 위치한 곳에서 폴더 하나 밖으로 -->
+		<jsp:include page="./header.jsp"></jsp:include>
+	</div>
+	<!-- 메인 -->
+	<div id="wrapper">
+		<div id="main">
+				<h3>블로그</h3>
+			<article class="post">
+				<p>블로그에 오신 것을 환영합니다!</p>
+				<p>회원가입 및 로그인 후 게시판에 글 작성이 가능합니다.</p>
+				<p>나만의 포스팅으로 게시판을 꾸며보세요!</p>
+			</article>
+		</div>
+	</div>
 </body>
 </html>

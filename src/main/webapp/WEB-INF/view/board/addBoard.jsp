@@ -47,7 +47,7 @@
 	<!-- 메뉴 페이지 -->
 	<div>
 		<!-- .. : 현재 이 jsp파일이 위치한 곳에서 폴더 하나 밖으로 -->
-		<jsp:include page="../home.jsp"></jsp:include>
+		<jsp:include page="../header.jsp"></jsp:include>
 	</div>
 	<div id="wrapper">
 		<div id="main">
@@ -70,7 +70,9 @@
 							</td>
 						</tr>
 					</table>
-					<button type="button" id="addBoardBtn">작성</button>
+					<div style="text-align: center;">
+						<button type="button" id="addBoardBtn">작성</button>
+					</div>
 				</form>
 			</article>
 		</div>

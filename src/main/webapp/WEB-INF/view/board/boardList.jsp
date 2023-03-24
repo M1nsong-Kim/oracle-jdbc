@@ -8,19 +8,27 @@
 <title>게시판</title>
 <!-- 템플릿 적용 -->
 <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/html5up-future-imperfect/assets/css/main.css">
+<style>
+	.paging {
+	  /* 수평 중앙 정렬하기 */
+	  text-align: center;
+	}
+</style>
 </head>
 <body>
 	<!-- 메뉴 페이지 -->
 	<div>
 		<!-- .. : 현재 이 jsp파일이 위치한 곳에서 폴더 하나 밖으로 -->
-		<jsp:include page="../home.jsp"></jsp:include>
+		<jsp:include page="../header.jsp"></jsp:include>
 	</div>
 
 	<div id="wrapper">
 		<div id="main">
-			<a href="${pageContext.request.contextPath}/board/addBoard">글쓰기</a>
 		    <article class="post">
-				<table>
+		    <div style="text-align: right;">
+				<a href="${pageContext.request.contextPath}/board/addBoard">글쓰기</a>
+		    </div>
+				<table class="table table-responsive">
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
@@ -28,14 +36,14 @@
 					</tr>
 					<c:forEach var="b" items="${boardList}">
 						<tr>
-							<td>${b.boardNo}</td>
-							<td><a href="${pageContext.request.contextPath}/board/boardOne?boardNo=${b.boardNo}">${b.boardTitle}</a></td>
-							<td>${b.createdate}</td>
+							<td style="width: 3%">${b.boardNo}</td>
+							<td style="width: 20%"><a href="${pageContext.request.contextPath}/board/boardOne?boardNo=${b.boardNo}">${b.boardTitle}</a></td>
+							<td style="width: 3%">${b.createdate}</td>
 						</tr>
 					</c:forEach>
 				</table>
 				<!-- 페이징 -->
-				<div>
+				<div class="paging">
 					<c:if test="${currentPage > 10}">
 						<a href="${pageContext.request.contextPath}/board/boardList?currentPage=${currentPage-10}"><<</a>
 					</c:if>

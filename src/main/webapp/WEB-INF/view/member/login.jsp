@@ -47,7 +47,7 @@
 	<!-- 메뉴 페이지 -->
 	<div>
 		<!-- .. : 현재 이 jsp파일이 위치한 곳에서 폴더 하나 밖으로 -->
-		<jsp:include page="../home.jsp"></jsp:include>
+		<jsp:include page="../header.jsp"></jsp:include>
 	</div>
 	
 	<div id="wrapper">
@@ -59,13 +59,13 @@
 			        <table>
 			            <tr>
 			                <td>
-			                    <input type="text" name="memberId" placeholder="아이디를 입력하세요" id="memberId">
+			                    <input type="text" name="memberId" placeholder="아이디를 입력하세요" id="memberId" value="hong">
 			                	<div id="idMsg"></div>
 			                </td>
 			            </tr>
 			            <tr>
 			                <td>
-			                    <input type="password" name="memberPw" placeholder="비밀번호를 입력하세요" id="memberPw">
+			                    <input type="password" name="memberPw" placeholder="비밀번호를 입력하세요" id="memberPw" value="1234">
 			                	<div id="pwMsg"></div>
 			                </td>
 			            </tr>

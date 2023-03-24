@@ -11,7 +11,7 @@
 	<!-- 메뉴 페이지 -->
 	<div>
 		<!-- .. : 현재 이 jsp파일이 위치한 곳에서 폴더 하나 밖으로 -->
-		<jsp:include page="../home.jsp"></jsp:include>
+		<jsp:include page="../header.jsp"></jsp:include>
 	</div>
 	<div id="wrapper">
 		<div id="main">
@@ -35,7 +35,6 @@
 				</div>
 				<footer>
 					<ul class="stats">
-						<li><a href="#" class="icon solid fa-comment">128</a></li>
 					</ul>
 				</footer>
 			</article>
